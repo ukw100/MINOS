@@ -32,7 +32,7 @@
 #include "delay.h"
 #include "tft.h"
 
-#if defined ILI93141 || defined SSD1963
+#if defined ILI9341 || defined SSD1963
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------
  * tft_fadein_backlight ()  - fade in backlight

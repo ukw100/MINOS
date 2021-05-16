@@ -35,7 +35,7 @@
 #include "tft.h"
 #endif
 
-#if defined ILI93141 || defined SSD1963
+#if defined ILI9341 || defined SSD1963
 
 #include "font.h"
 
