@@ -2241,16 +2241,7 @@ is_uart_number (unsigned char * s, int * skipp)
     if (! ustrncmp (s, "UART", 4) && *(s + 4) >= '1' && *(s + 4) <= '6' && !is_letter_or_digit (*(s + 5)))
     {
         *skipp = 5;
-
-        switch (*(s + 4))
-        {
-            case '1':     rtc = UART_NUMBER_1 + '0';    break;
-            case '2':     rtc = UART_NUMBER_2 + '0';    break;
-            case '3':     rtc = UART_NUMBER_3 + '0';    break;
-            case '4':     rtc = UART_NUMBER_4 + '0';    break;
-            case '5':     rtc = UART_NUMBER_5 + '0';    break;
-            case '6':     rtc = UART_NUMBER_6 + '0';    break;
-        }
+        rtc = (*(s + 4)) - 1;
     }
     return rtc;
 }
@@ -6995,7 +6986,7 @@ nicc (const char * in, int verbose)
 
                     if (in_function)
                     {
-                        unsigned char varname[MAX_VARIABLE_NAME_LEN + 1];
+                        unsigned char varname[MAX_FUNCTION_NAME_LEN + MAX_VARIABLE_NAME_LEN + 2];
 
                         if ((tmpline = local_variable_exists (functions + current_function_idx, kw)) > 0)
                         {
@@ -7036,7 +7027,7 @@ nicc (const char * in, int verbose)
 
                     if (in_function)
                     {
-                        unsigned char varname[MAX_VARIABLE_NAME_LEN + 1];
+                        unsigned char varname[MAX_FUNCTION_NAME_LEN + MAX_VARIABLE_NAME_LEN + 2];
 
                         if ((tmpline = local_variable_exists (functions + current_function_idx, kw)) > 0)
                         {
@@ -7148,7 +7139,7 @@ nicc (const char * in, int verbose)
 
                     if (in_function)
                     {
-                        unsigned char varname[MAX_VARIABLE_NAME_LEN + 1];
+                        unsigned char varname[MAX_FUNCTION_NAME_LEN + MAX_VARIABLE_NAME_LEN + 2];
 
                         if ((tmpline = local_variable_exists (functions + current_function_idx, kw)) > 0)
                         {
@@ -7241,7 +7232,7 @@ nicc (const char * in, int verbose)
 
                     if (in_function)
                     {
-                        unsigned char varname[MAX_VARIABLE_NAME_LEN + 1];
+                        unsigned char varname[MAX_FUNCTION_NAME_LEN + MAX_VARIABLE_NAME_LEN + 2];
 
                         if ((tmpline = local_variable_exists (functions + current_function_idx, kw)) > 0)
                         {
@@ -7334,7 +7325,7 @@ nicc (const char * in, int verbose)
 
                     if (in_function)
                     {
-                        unsigned char varname[MAX_VARIABLE_NAME_LEN + 1];
+                        unsigned char varname[MAX_FUNCTION_NAME_LEN + MAX_VARIABLE_NAME_LEN + 2];
 
                         if ((tmpline = local_variable_exists (functions + current_function_idx, kw)) > 0)
                         {

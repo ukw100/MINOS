@@ -549,7 +549,7 @@ static void SetSysClock(void)
         RCC->CFGR &= (uint32_t)((uint32_t)~(RCC_CFGR_SW));      // Select the main PLL as system clock source
         RCC->CFGR |= RCC_CFGR_SW_PLL;
 
-        while ((RCC->CFGR & (uint32_t)RCC_CFGR_SWS ) != RCC_CFGR_SWS_PLL);
+        while ((RCC->CFGR & (uint32_t)RCC_CFGR_SWS ) != RCC_CFGR_SWS_PLL)
         {
             ;                                                   // Wait until main PLL is used as system clock source
         }
